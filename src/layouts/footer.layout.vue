@@ -1,5 +1,6 @@
 <template>
-    <footer class="footer-dark ftr-light-with-bg site-bg-cover" style="background-image: url(images/ftr-bg.jpg);">
+    <footer id="bottom" class="footer-dark ftr-light-with-bg site-bg-cover"
+        style="background-image: url(images/ftr-bg.jpg);">
         <div class="container">
 
             <!-- FOOTER BLOCKES START -->
@@ -19,13 +20,13 @@
                                 spécialisation. l'emploi de vos rêves vous attend. </p>
                             <ul class="ftr-list">
                                 <li>
-                                    <p><span>Adresse :</span>65 Sunset CA 90026, USA </p>
+                                    <p><span>Adresse :</span>03, Bismarck, Golf Gombe Kinshasa </p>
                                 </li>
                                 <li>
                                     <p><span>Email :</span>info@mosala.site</p>
                                 </li>
                                 <li>
-                                    <p><span>Téléphone :</span>+(243) 837272883</p>
+                                    <p><span>Téléphone :</span>+(243) 971464803</p>
                                 </li>
                             </ul>
                         </div>

@@ -5,7 +5,6 @@
             <div class="main-bar">
 
                 <div class="container-fluid clearfix">
-
                     <div class="logo-header">
                         <div class="logo-header-inner logo-header-one">
                             <a href="#/" class="d-flex align-content-center align-items-center">
@@ -30,26 +29,30 @@
                         <ul class=" nav navbar-nav">
                             <li class="has-mega-menu"><a href="#/">Accueil</a>
                             </li>
-                            <li class="has-child"><a href="javascript:;">Formations</a>
+                            <!-- <li class="has-child"><a href="javascript:;">Formations</a>
                                 <ul class="sub-menu">
                                     <li><a href="#">Formation en ligne</a></li>
                                     <li><a href="#">Formation présentielle</a></li>
                                 </ul>
-                            </li>
+                            </li> -->
                             <li class="has-child"><a href="javascript:;">Recrutements</a>
                                 <ul class="sub-menu">
-                                    <li><a href="#">Recrutement formateur</a></li>
-                                    <li><a href="#">Recrutement employé</a></li>
+                                    <!--  <li><a href="#">Recrutement formateur</a></li> -->
+                                    <li><a href="javascript:void(0)" @click.stop="scrollToAnchor('recrut')">Recrutement
+                                            employé</a></li>
                                 </ul>
                             </li>
-                            <li class="has-mega-menu"><a href="javascript:;">Nous contacter</a>
+                            <li class="has-mega-menu">
+                                <!-- <a href="#" >Nous contacter</a> -->
+                                <a href="javascript:void(0)" @click.stop="scrollToAnchor('bottom')">Nous
+                                    contacter</a>
                             </li>
                         </ul>
 
                     </div>
 
                     <!-- Header Right Section-->
-                    <div class="extra-nav header-2-nav">
+                    <!-- <div class="extra-nav header-2-nav">
 
                         <div class="extra-cell">
                             <div class="header-nav-btn-section">
@@ -62,7 +65,7 @@
                             </div>
                         </div>
 
-                    </div>
+                    </div> -->
                 </div>
 
             </div>
@@ -72,6 +75,20 @@
 </template>
 <script>
 export default {
-    name: 'HeaderLayout'
+    name: 'HeaderLayout',
+
+    methods: {
+        scrollToAnchor(id) {
+            console.log("scroll started");
+            // Récupère la référence de l'élément ayant l'ancre
+            const anchor = document.getElementById(id);
+
+            // Fait défiler la page vers l'ancre
+            if (anchor) {
+                anchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+
+        }
+    },
 }
 </script>

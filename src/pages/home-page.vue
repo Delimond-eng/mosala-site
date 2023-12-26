@@ -193,7 +193,7 @@
             <!-- HOW IT WORK SECTION END -->
 
             <!-- JOBS CATEGORIES SECTION START -->
-            <div class="section-full p-t100 p-b90 site-bg-white twm-job-categories-hpage-6-area">
+            <div class="section-full p-t100 p-b90 site-bg-white twm-job-categories-hpage-6-area" id="recrut">
                 <!-- TITLE START-->
                 <div class="section-head center wt-small-separator-outer">
                     <div class="wt-small-separator site-text-primary">
@@ -255,23 +255,32 @@
                                 <div class="col-xl-8 col-lg-12">
                                     <div class="row">
                                         <div class="col-md-3">
-                                            <img data-aos="zoom-in" src="assets/images/partenaires/logofisco.png"
-                                                class="img-fluid" alt="fisco logo">
+                                            <a href="https://fiscosarlu.com" target="_blank">
+                                                <img data-aos="zoom-in" src="assets/images/partenaires/logofisco.png"
+                                                    class="img-fluid" alt="fisco logo">
+                                            </a>
                                             <!-- <span>Fiduciaire</span> -->
                                         </div>
                                         <div class="col-md-3">
-                                            <img data-aos="zoom-in" src="assets/images/partenaires/castor.jpg"
-                                                class="img-fluid" alt="castor network logo">
+                                            <a href="https://castornetworks.com">
+                                                <img data-aos="zoom-in" src="assets/images/partenaires/castor.jpg"
+                                                    class="img-fluid" alt="castor network logo">
+
+                                            </a>
                                             <!-- <span>Fournisseur d'accès internet</span> -->
                                         </div>
                                         <div class="col-md-3">
-                                            <img data-aos="zoom-in" src="assets/images/partenaires/hyper.jpeg"
-                                                class="img-fluid" style="height: 80px;" alt="hyper security logo">
+                                            <a href="https://hscongo.net" target="_blank">
+                                                <img data-aos="zoom-in" src="assets/images/partenaires/hyper.jpeg"
+                                                    class="img-fluid" style="height: 80px;" alt="hyper security logo">
+                                            </a>
                                             <!-- <span>Gardiennage</span> -->
                                         </div>
                                         <div class="col-md-3">
-                                            <img data-aos="zoom-in" src="assets/images/partenaires/capture.PNG"
-                                                class="img-fluid" alt="millenium horizon logo">
+                                            <a href="https://milleniumhorizon.com" target="_blank">
+                                                <img data-aos="zoom-in" src="assets/images/partenaires/capture.PNG"
+                                                    class="img-fluid" alt="millenium horizon logo">
+                                            </a>
                                             <!-- <span>Sécurité éléctronique & developpement systèmes</span> -->
                                         </div>
                                     </div>
@@ -319,8 +328,7 @@
                                             </div>
                                             <form>
                                                 <div class="hpage-6-nw-form">
-                                                    <input name="news-letter" class="form-control"
-                                                        placeholder="Saisir votre adresse email...ex: monemail@domain"
+                                                    <input name="news-letter" class="form-control" placeholder="" readOnly
                                                         type="email">
                                                     <button class="hpage-6-nw-form-btn"><i
                                                             class="fa fa-paper-plane"></i></button>
@@ -411,7 +419,52 @@ export default {
                     icon: 'fas fa-balance-scale',
                     title: 'Droit',
                     actived: false,
-                }
+                },
+                {
+                    icon: 'fa fa-paint-brush',
+                    title: 'Design & infographie',
+                    actived: false
+                },
+
+                {
+                    icon: 'fa fa-graduation-cap',
+                    title: 'Education',
+                    actived: false
+                },
+                {
+                    icon: 'fas fa-plane',
+                    title: 'Voyage',
+                    actived: false
+                },
+                {
+                    icon: 'fas fa-shopping-cart',
+                    title: 'Commerce & distribution',
+                    actived: false
+                },
+                {
+                    icon: 'fas fa-laptop',
+                    title: 'Service aux entreprises',
+                    actived: false
+                },
+                {
+                    icon: 'fas fa-tv',
+                    title: 'Eletronique',
+                    actived: false
+                },
+                {
+                    icon: 'fas fa-lightbulb',
+                    title: 'Etudes & conseils',
+                    actived: false
+                },
+                {
+                    icon: 'fas fa-shield-alt',
+                    title: 'Sécurité physique',
+                    actived: false
+                }, {
+                    icon: 'fas fa-asterisk',
+                    title: 'Autres',
+                    actived: false
+                },
             ]
         }
     },
