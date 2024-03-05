@@ -69,13 +69,14 @@
                         <div class="col-xl-9 col-lg-8 col-md-12 m-b30">
                             <!--Filter Short By-->
                             <div class="twm-right-section-panel site-bg-gray">
-                                <form @submit.prevent="submitForm">
+                                <form @submit.prevent="submitForm" enctype="multipart/form-data">
                                     <!--Basic Information-->
                                     <div class="panel panel-default">
                                         <div class="panel-body wt-panel-body p-a20 m-b30 ">
                                             <div class="row">
                                                 <div class="col-12">
-                                                    <p class="text-primary">Veuillez renseigner tous les champs requis pour
+                                                    <p class="text-primary">Veuillez renseigner tous les champs requis
+                                                        pour
                                                         souscrire !</p>
                                                 </div>
                                                 <div class="col-xl-6 col-lg-6 col-md-12">
@@ -106,8 +107,8 @@
                                                         <label>Prénom <sup class="text-danger">*</sup></label>
                                                         <div class="ls-inputicon-box">
                                                             <input class="form-control" v-model="form.prenom"
-                                                                name="company_phone" type="text" placeholder="ex: Blaise"
-                                                                required>
+                                                                name="company_phone" type="text"
+                                                                placeholder="ex: Blaise" required>
                                                             <i class="fs-input-icon fa fa-user"></i>
                                                         </div>
                                                     </div>
@@ -141,7 +142,8 @@
                                                     <div class="form-group">
                                                         <label>Diplome <sup class="text-danger">*</sup></label>
                                                         <div class="ls-inputicon-box">
-                                                            <select class="form-control" required v-model="form.diplome">
+                                                            <select class="form-control" required
+                                                                v-model="form.diplome">
                                                                 <option label="Sélectionnez votre diplôme..." selected
                                                                     hidden>
                                                                 </option>
@@ -167,7 +169,8 @@
                                                             complet <sup class="text-danger">*</sup></label>
                                                         <div class="ls-inputicon-box"><input class="form-control"
                                                                 v-model="form.adresse" name="company_since" type="text"
-                                                                placeholder="ex: 03 Rue badio,C.Kitambo,Kinshasa" required>
+                                                                placeholder="ex: 03 Rue badio,C.Kitambo,Kinshasa"
+                                                                required>
                                                             <i class="fs-input-icon fas fa-map-marker-alt"></i>
                                                         </div>
                                                     </div>
@@ -187,9 +190,9 @@
                                                     <h5>Pièce jointe</h5>
                                                     <div class="form-group city-outer-bx has-feedback"><label>CV(en PDF)
                                                             <sup class="text-danger">*</sup></label>
-                                                        <div class="ls-inputicon-box"><input class="form-control" ref="file"
-                                                                name="company_since" type="file" accept=".pdf" required
-                                                                @change="onUpload">
+                                                        <div class="ls-inputicon-box"><input class="form-control"
+                                                                ref="file" name="company_since" type="file"
+                                                                accept=".pdf" required @change="onUpload">
                                                             <i class="fs-input-icon fas fa-paperclip"></i>
                                                         </div>
                                                     </div>
@@ -198,14 +201,15 @@
                                                 <div class="col-lg-12 col-md-12">
                                                     <div class="d-flex justify-content-end">
                                                         <button data-aos="zoom-in" type="submit"
-                                                            class="site-button green flex-fill me-2" :disabled="isLoading">
+                                                            class="site-button green flex-fill me-2"
+                                                            :disabled="isLoading">
                                                             <svg width="24" v-if="isLoading" fill="#FFFFFF" height="24"
                                                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                                 <circle class="spinner_S1WN" cx="4" cy="12" r="3" />
-                                                                <circle class="spinner_S1WN spinner_Km9P" cx="12" cy="12"
-                                                                    r="3" />
-                                                                <circle class="spinner_S1WN spinner_JApP" cx="20" cy="12"
-                                                                    r="3" />
+                                                                <circle class="spinner_S1WN spinner_Km9P" cx="12"
+                                                                    cy="12" r="3" />
+                                                                <circle class="spinner_S1WN spinner_JApP" cx="20"
+                                                                    cy="12" r="3" />
                                                             </svg> Soumettre
                                                             vos informations</button>
                                                         <button data-aos="zoom-in" type="button" class="site-button"
@@ -230,10 +234,32 @@
         <!-- FOOTER END -->
     </div>
 </template>
+
 <script>
 import HeaderLayout from '../layouts/header.layout';
 import FooterLayout from '../layouts/footer.layout';
 import axios from "axios";
+
+function convertBase64ToFile(base64Data, fileName) {
+    // Convertir la représentation base64 en tableau de bytes
+    const byteCharacters = atob(base64Data.split(',')[1]);
+    const byteNumbers = new Array(byteCharacters.length);
+
+    for (let i = 0; i < byteCharacters.length; i++) {
+        byteNumbers[i] = byteCharacters.charCodeAt(i);
+    }
+
+    const byteArray = new Uint8Array(byteNumbers);
+
+    // Créer un objet Blob à partir du tableau de bytes
+    const blob = new Blob([byteArray], { type: 'image/png' });
+
+    // Créer un objet File à partir du Blob
+    const file = new File([blob], fileName, { type: 'image/png' });
+
+    return file;
+}
+
 export default {
     name: 'SubscribePage',
     data() {
@@ -312,44 +338,24 @@ export default {
             capturedImage.style.borderRadius = '10px';
             capturedImage.style.width = '190px';
             cameraDisplay.appendChild(capturedImage);
-            this.form.profil = canvas.toDataURL('image/png');
+            const base64Data = canvas.toDataURL('image/png');
+            // Générer un nom de fichier unique
+            const fileName = 'temp_image_' + Date.now() + '.png';
+            // Convertir la représentation base64 en fichier temporaire
+            const imageFile = convertBase64ToFile(base64Data, fileName);
+            this.form.profil = imageFile;
             this.isRefreshCamera = true;
         },
         onUpload(event) {
             const selectedFile = event.target.files[0];
             if (selectedFile) {
-                const fileName = selectedFile.name;
-                const fileExtension = fileName.split('.').pop().toLowerCase();
-                if (fileExtension === 'pdf') {
-                    this.convertToBase64(selectedFile).then((b64) => {
-                        this.form.fichier = b64;
-                    }).catch((err) => {
-                        console.error(err);
-                        Swal({
-                            title: 'Echec de conversion du fichier !',
-                            toast: true,
-                            icon: 'warning',
-                            showCancelButton: false,
-                            showConfirmButton: false,
-                            timer: 3000
-                        });
-                    })
-                } else {
-                    Swal({
-                        title: 'Le fichier sélectionné n\'est pas un PDF. !',
-                        toast: true,
-                        icon: 'warning',
-                        showCancelButton: false,
-                        showConfirmButton: false,
-                        timer: 3000
-                    });
-                    this.$refs.file.value = '';
-                }
+                this.form.fichier = selectedFile;
             } else {
                 alert('Aucun fichier sélectionné.');
             }
         },
         submitForm(e) {
+
             if (this.form.profil == null) {
                 this.captureMissed = true;
                 Swal({
@@ -386,27 +392,36 @@ export default {
             formData.append('email', this.form.email);
             formData.append('adresse', this.form.adresse);
             formData.append('telephone', this.form.telephone);
-            formData.append('profil', this.form.profil);
+            formData.append('profile', this.form.profil);
             formData.append('domaine', this.form.domaine);
-            formData.append('fichier', this.form.fichier);
+            formData.append('cv', this.form.fichier);
             formData.append('description', this.form.description);
             formData.append('diplome', this.form.diplome);
             this.isLoading = true;
-            axios.post("https://backend.fiscosarlu.com/app/data/saveProfil", formData
+            axios.post("http://mosala.bakend.milleniumhorizon.com/api/candidate.create", formData
             ).then((result) => {
                 this.isLoading = false;
-                if (result.data.reponse !== undefined) {
-                    if (result.data.reponse.status === 'success') {
-                        Swal({
-                            icon: 'success',
-                            title: 'Effectué avec succès !',
-                            text: 'Votre candidature a été soumise avec succès ! Nous vous remercions pour votre intérêt. Vous serez notifié(e) dans les plus brefs délais. Merci pour votre patience. ',
-                            showConfirmButton: false,
-                            showCancelButton: false,
-                            timer: 5000
-                        });
-                        this.$router.go(-1);
-                    }
+                if (result.data.errors !== undefined) {
+                    Swal({
+                        icon: "warning",
+                        title: result.errors.toString(),
+                        toast: true,
+                        placement: 'bottom-end',
+                        showConfirmButton: false,
+                        showCancelButton: false
+                    });
+                    return;
+                }
+                if (result.data.status !== undefined) {
+                    Swal({
+                        icon: 'success',
+                        title: 'Effectué avec succès !',
+                        text: 'Votre candidature a été soumise avec succès ! Nous vous remercions pour votre intérêt. Vous serez notifié(e) dans les plus brefs délais. Merci pour votre patience. ',
+                        showConfirmButton: false,
+                        showCancelButton: false,
+                        timer: 5000
+                    });
+                    this.$router.go(-1);
                 }
             }).catch((err) => {
                 this.isLoading = false
