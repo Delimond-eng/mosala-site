@@ -290,6 +290,11 @@ export default {
     },
 
     mounted() {
+        if ($('.sticky-header').length) {
+            var sticky = new Waypoint.Sticky({
+                element: jQuery('.sticky-header')
+            });
+        }
         this.$nextTick(() => {
             let currentSelectedDomaines = JSON.parse(localStorage.getItem('domaines'));
             this.domaines = currentSelectedDomaines;
@@ -398,7 +403,7 @@ export default {
             formData.append('description', this.form.description);
             formData.append('diplome', this.form.diplome);
             this.isLoading = true;
-            axios.post("http://mosala.bakend.milleniumhorizon.com/api/candidate.create", formData
+            axios.post("https://mosala.bakend.milleniumhorizon.com/api/candidate.create", formData
             ).then((result) => {
                 this.isLoading = false;
                 if (result.data.errors !== undefined) {

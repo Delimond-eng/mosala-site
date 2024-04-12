@@ -468,6 +468,13 @@ export default {
             ]
         }
     },
+    mounted() {
+        if ($('.sticky-header').length) {
+            var sticky = new Waypoint.Sticky({
+                element: jQuery('.sticky-header')
+            });
+        }
+    },
     methods: {
         onSelectedChanged(event, data) {
             console.log('onchanged', data);

@@ -1,5 +1,5 @@
 <template>
-    <header class="site-header header-style-3 mobile-sider-drawer-menu">
+    <header class="site-header  mobile-sider-drawer-menu" :class="className">
 
         <div class="sticky-header main-bar-wraper  navbar-expand-lg">
             <div class="main-bar">
@@ -37,9 +37,9 @@
                             </li> -->
                             <li class="has-child"><a href="javascript:;">Recrutements</a>
                                 <ul class="sub-menu">
-                                    <!--  <li><a href="#">Recrutement formateur</a></li> -->
                                     <li><a href="javascript:void(0)" @click.stop="scrollToAnchor('recrut')">Recrutement
                                             employé</a></li>
+                                    <li><a href="#/formation">Formation</a></li>
                                 </ul>
                             </li>
                             <li class="has-mega-menu">
@@ -76,6 +76,13 @@
 <script>
 export default {
     name: 'HeaderLayout',
+
+    props: {
+        className: {
+            type: String,
+            default: 'header-style-3'
+        }
+    },
 
     methods: {
         scrollToAnchor(id) {
