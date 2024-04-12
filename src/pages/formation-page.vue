@@ -265,7 +265,7 @@ export default {
     methods: {
         createCandidate(e) {
             this.formLoading = true;
-            axios.post("http://127.0.0.1:8000/api/formation.save.candidate", this.form
+            axios.post("https://mosala.bakend.milleniumhorizon.com/api/formation.save.candidate", this.form
             ).then((result) => {
                 this.formLoading = false;
                 if (result.data.errors !== undefined) {
