@@ -143,7 +143,7 @@
                                                         <label>Diplome <sup class="text-danger">*</sup></label>
                                                         <div class="ls-inputicon-box">
                                                             <select class="form-control" required
-                                                                v-model="form.diplome">
+                                                                @change="form.diplome = $event.target.value">
                                                                 <option label="Sélectionnez votre diplôme..." selected
                                                                     hidden>
                                                                 </option>

@@ -39,7 +39,7 @@
 
                                 <div class="twm-testimonial-page8-left mt-4">
                                     <div class="testimonial-outline-text-small bounce2">
-                                        <span>Maitrisez l'IA</span>
+                                        <span>Exploiter la puissance d'internet grâce à l'utilsation de l'IA !</span>
                                     </div>
                                 </div>
                             </div>
@@ -53,17 +53,26 @@
 
                                             <div class="wt-post-meta ">
                                                 <ul>
-                                                    <li class="post-date">Jeudi 09 mai et Vendredi 10 mai</li>
-                                                    <li class="post-author"> De <a href="javascript:void(0)">16h à
-                                                            18h</a></li>
+                                                    <li class="post-date">Du Vendredi 12 Juillet au Mardi 16 Juillet
+                                                    </li>
+                                                    <li class="post-author"> De <a href="javascript:void(0)">16h30 à
+                                                            20h</a></li>
                                                 </ul>
                                             </div>
 
                                             <div class="wt-post-title ">
                                                 <h4 class="post-title">
-                                                    <a href="javascript:void(0)">Dispense du cours et des ateliers
-                                                        pratiques !</a>
+                                                    <a href="javascript:void(0)">Dispensation du cours et des ateliers
+                                                        pratiques</a>
                                                 </h4>
+                                            </div>
+                                            <div class="wt-post-title ">
+                                                <p class="post-title">
+                                                    <i class="fa fa-map-marker-alt text-info"></i><small>
+                                                        03, Bismark, Golf, Gombe Kinshasa, Ref. Immeuble Startup en face
+                                                        du Terrain maman Yemo à côté de la maison Koffi et securico !
+                                                    </small>
+                                                </p>
                                             </div>
 
                                         </div>
@@ -75,7 +84,7 @@
 
                                             <div class="wt-post-meta ">
                                                 <ul>
-                                                    <li class="post-date">Samedi 11 mai</li>
+                                                    <li class="post-date">Dimache 21 Juillet</li>
                                                     <li class="post-author"> à <a href="javascript:void(0)">13h</a></li>
                                                 </ul>
                                             </div>
@@ -84,6 +93,16 @@
                                                 <h4 class="post-title">
                                                     <a href="javascript:void(0)">Test et remise de brevet !</a>
                                                 </h4>
+                                                <div class="wt-post-title ">
+                                                    <p class="post-title">
+                                                        <i class="fa fa-map-marker-alt text-info"></i><small>
+                                                            03, Bismark, Golf, Gombe Kinshasa, Ref. Immeuble Startup en
+                                                            face
+                                                            du Terrain maman Yemo à côté de la maison Koffi et securico
+                                                            !
+                                                        </small>
+                                                    </p>
+                                                </div>
                                             </div>
 
                                         </div>
@@ -105,7 +124,8 @@
                                                     <form @submit.prevent="createCandidate" class="row">
                                                         <div class="col-xl-6 col-lg-6 col-md-12">
                                                             <div class="form-group">
-                                                                <label>Nom <sup>*</sup></label>
+                                                                <label class="mb-1">Nom <sup
+                                                                        class="text-danger">*</sup></label>
                                                                 <div class="ls-inputicon-box">
                                                                     <input class="form-control" name="company_name"
                                                                         type="text" v-model="form.nom"
@@ -116,7 +136,8 @@
                                                         </div>
                                                         <div class="col-xl-6 col-lg-6 col-md-12">
                                                             <div class="form-group">
-                                                                <label>Prénom <sup>*</sup></label>
+                                                                <label class="mb-1">Prénom <sup
+                                                                        class="text-danger">*</sup></label>
                                                                 <div class="ls-inputicon-box">
                                                                     <input v-model="form.prenom" class="form-control"
                                                                         name="company_name" type="text"
@@ -127,11 +148,12 @@
                                                         </div>
                                                         <div class="col-xl-6 col-lg-6 col-md-12">
                                                             <div class="form-group">
-                                                                <label>Email <sup>*</sup></label>
+                                                                <label class="mb-1">Email <sup
+                                                                        class="text-danger">*</sup></label>
                                                                 <div class="ls-inputicon-box">
                                                                     <input v-model="form.email" class="form-control"
                                                                         name="company_Email" type="email"
-                                                                        placeholder="deli@example.com" required>
+                                                                        placeholder="deli@example.com">
                                                                     <i class="fs-input-icon fas fa-at"></i>
                                                                 </div>
                                                             </div>
@@ -139,7 +161,8 @@
 
                                                         <div class="col-xl-6 col-lg-6 col-md-12">
                                                             <div class="form-group">
-                                                                <label>Téléphone <sup>*</sup></label>
+                                                                <label class="mb-1">Téléphone <sup
+                                                                        class="text-danger">*</sup></label>
                                                                 <div class="ls-inputicon-box">
                                                                     <input v-model="form.telephone" class="form-control"
                                                                         name="company_phone" type="text"
@@ -149,9 +172,10 @@
                                                             </div>
                                                         </div>
 
-                                                        <div class="col-xl-12 col-lg-12 col-md-12">
+                                                        <div class="col-xl-6 col-lg-6 col-md-12">
                                                             <div class="form-group">
-                                                                <label>Emploi actuel(<small>optionnel</small>)</label>
+                                                                <label class="mb-1">Emploi <sup
+                                                                        class="text-danger"><small>(optionnel)</small></sup></label>
                                                                 <div class="ls-inputicon-box">
                                                                     <input v-model="form.current_job"
                                                                         class="form-control" name="company_phone"
@@ -161,9 +185,47 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        <div class="col-xl-6 col-lg-6 col-md-12">
+                                                            <div class="form-group">
+                                                                <label class="mb-1">Centres
+                                                                    d'intérêt <sup
+                                                                        class="text-danger"><small>(Optionnelle)</small></sup></label>
+                                                                <div class="ls-inputicon-box">
+                                                                    <Select class="form-control"
+                                                                        @change="form.hobbie = $event.target.value">
+                                                                        <option value="" selected hidden
+                                                                            class="text-muted">
+                                                                            Sélectionnez votre centre
+                                                                            d'intérêt...
+                                                                        </option>
+                                                                        <option v-for="(item, index) in hobbies"
+                                                                            :key="index" :value="item">
+                                                                            {{ item }}
+                                                                        </option>
+                                                                    </Select>
+                                                                    <i class="fs-input-icon fa fa-people-arrows"></i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
                                                         <div class="col-xl-12 col-lg-12 col-md-12">
                                                             <div class="form-group">
-                                                                <label>Adresse(<small>Optionnelle</small>)</label>
+                                                                <label class="mb-1">Ville <sup
+                                                                        class="text-danger">*</sup></label>
+                                                                <div class="ls-inputicon-box">
+                                                                    <input v-model="form.ville" class="form-control"
+                                                                        name="company_phone" type="text"
+                                                                        placeholder="Saisir votre le nom de la ville..."
+                                                                        required>
+                                                                    <i class="fs-input-icon fa fa-map-marked"></i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-12 col-lg-12 col-md-12">
+                                                            <div class="form-group">
+                                                                <label class="mb-1">Adresse
+                                                                    <sup
+                                                                        class="text-danger"><small>(Optionnelle)</small></sup></label>
                                                                 <div class="ls-inputicon-box">
                                                                     <input v-model="form.adresse" class="form-control"
                                                                         name="company_phone" type="text"
@@ -175,14 +237,29 @@
 
                                                         <div class="col-xl-12 col-lg-12">
                                                             <div class="form-group">
+                                                                <input class="form-check-input me-2" @change="openPay"
+                                                                    type="checkbox" id="flexRadioDefault3">
+                                                                <label class="form-check-label" for="flexRadioDefault3">
+                                                                    Cochez cette case pour procéder au
+                                                                    paiement ! <sup
+                                                                        class="text-danger"><small>(optionnel)</small></sup>
+
+                                                                </label>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-xl-12 col-lg-12">
+                                                            <div class="form-group">
                                                                 <input class="form-check-input" type="checkbox"
                                                                     name="flexRadioDefault" id="flexRadioDefault2"
-                                                                    checked="" required>
-                                                                <label class="form-check-label" for="flexRadioDefault2">
+                                                                    checked="" v-model="accepted" required>
+                                                                <label class="form-check-label flex-fill"
+                                                                    for="flexRadioDefault2">
                                                                     J'accepte les Conditions Générales d'Utilisation et
                                                                     la Politique de Confidentialité. <small><a
                                                                             class="site-text-primary"
-                                                                            href="javascript:void(0);">Lire les
+                                                                            href="javascript:void(0);"
+                                                                            @click="showPrivacy">Lire les
                                                                             conditions</a></small>
                                                                 </label>
                                                             </div>
@@ -190,7 +267,8 @@
 
                                                         <div class="col-xl-12 col-lg-12 col-md-12">
                                                             <div class="text-left">
-                                                                <button type="submit" :disabled="formLoading"
+                                                                <button type="submit"
+                                                                    :disabled="formLoading || !accepted"
                                                                     class="site-button">S'inscrire
                                                                     maintenant <svg v-if="formLoading" width="24"
                                                                         fill="#FFFFFF" height="24" viewBox="0 0 24 24"
@@ -204,21 +282,15 @@
                                                                     </svg> </button>
                                                             </div>
                                                         </div>
-
                                                     </form>
                                                 </div>
-
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
-
                             </div>
-
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -228,17 +300,23 @@
         <footer-layout></footer-layout>
         <!-- FOOTER END -->
     </div>
+    <privacy-modal />
+    <pay-modal />
 </template>
 
 <script>
 import HeaderLayout from '../layouts/header.layout';
 import FooterLayout from '../layouts/footer.layout';
 import axios from "axios";
+import privacyModal from "@/components/modal_privacy_policy";
+import payModal from "@/components/modal_pay.vue";
 export default {
     name: 'HomePage',
     components: {
         HeaderLayout,
-        FooterLayout
+        FooterLayout,
+        privacyModal,
+        payModal
     },
     data() {
         return {
@@ -248,9 +326,31 @@ export default {
                 adresse: '',
                 email: '',
                 telephone: '',
-                current_job: ''
+                current_job: '',
+                ville: '',
+                hobbie: ''
             },
-            formLoading: false
+            formLoading: false,
+            accepted: false,
+            hobbies: [
+                "Lecture",
+                "Voyages",
+                "Cuisine",
+                "Photographie",
+                "Journalisme",
+                "Infographie",
+                "Nouvelle Technologie",
+                "Electronique",
+                "Sports",
+                "Agriculture",
+                "Musique",
+                "Art",
+                "Architecture",
+                "Écriture",
+                "Jeux vidéo",
+                "Droit",
+                "Autre..."
+            ]
         }
     },
 
@@ -271,9 +371,9 @@ export default {
                 if (result.data.errors !== undefined) {
                     Swal({
                         icon: "warning",
-                        title: result.errors.toString(),
-                        toast: true,
+                        text: result.data.errors.toString(),
                         placement: 'bottom-end',
+                        timer: 3000,
                         showConfirmButton: false,
                         showCancelButton: false
                     });
@@ -311,6 +411,18 @@ export default {
             this.form.telephone = '';
             this.form.adresse = '';
             this.form.current_job = '';
+            this.form.ville = '';
+            this.form.hobbie = '';
+        },
+
+        openPay(e) {
+            if (e.target.checked) {
+                $('#pay-modal').modal('show');
+            }
+        },
+
+        showPrivacy() {
+            $('#privacyModal').modal('show');
         }
     },
 
